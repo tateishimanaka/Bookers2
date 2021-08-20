@@ -1,20 +1,19 @@
 class UsersController < ApplicationController
   
   def index
+    @user = current_user
+    @users = User.all
   end
   
   def show
   end
   
-  def edit 
+  def edit
   end
   
   def update
     
   end
-  
-  private
-   
 
   
 end
