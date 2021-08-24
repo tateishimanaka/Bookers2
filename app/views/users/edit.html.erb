@@ -1,0 +1,34 @@
+<div class="container mt-3">
+ <% if @user.errors.any? %>
+  <div class="errors text-danger">
+   <h3><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
+   <li>
+    <% @user.errors.full_messages.each do |message| %>
+     <%= message %>
+    <% end %>
+   </li>
+  </div>
+ <% end %>
+ <div class="row">
+  <div class="col-md-5 mx-auto">
+   <h2>User info</h2>
+   <%= form_with model:@user, local:true do |f| %>
+    <div class="form-group">
+     <label for="Book-name">Name</label>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label for="profile-image">Image</label>
+      <%= f.attachment_field :profile_image %>
+    </div>
+    <div classs="form-group">
+     <label for="Book-Introduct">Introduction</label>
+      <%= f.text_area :introduction, class: "form-control" %>
+    </div>
+    <div class="button mt-2">
+     <%= f.submit "Update User", class: "btn btn-secondary" %>
+    </div>
+   <% end %>
+  </div>
+ </div>
+</div>
